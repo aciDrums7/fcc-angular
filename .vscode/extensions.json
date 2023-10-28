@@ -16,6 +16,9 @@
     "esbenp.prettier-vscode",
     "tabnine.tabnine-vscode",
     "redhat.vscode-yaml",
-    "jeff-hykin.better-dockerfile-syntax"
+    "jeff-hykin.better-dockerfile-syntax",
+    "johnpapa.angular2",
+    "john-crowson.angular-file-changer",
+    "yatki.vscode-surround"
   ]
 }
