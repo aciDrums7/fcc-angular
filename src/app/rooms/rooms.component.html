@@ -1,8 +1,46 @@
 <h1>Welcome to {{ this.hotelName }}</h1>
 
-<div [hidden]="this.areRoomsHidden">
+<div *ngIf="this.isRoomCountShown">
   Number of Rooms:
-  <div [innerText]="this.numberOfRooms"></div>
+  <span
+    [innerText]="this.numberOfRooms"
+    [ngStyle]="{
+      color: this.hotel.availableRooms > 0 ? 'green' : 'red'
+    }"></span>
+</div>
+
+<div *ngIf="this.hotel.availableRooms > 0">
+  Rooms List
+  <!-- {{roomsList}} -->
+  <table>
+    <tr>
+      <th>Index</th>
+      <th>Even/Odd</th>
+      <th>Room Number</th>
+      <th>Room Type</th>
+      <th>Room Price</th>
+      <th>Room Amenities</th>
+      <th>Check In</th>
+      <th>Check Out</th>
+    </tr>
+    <tr
+      *ngFor="
+        let room of this.roomsList;
+        let isEven = even;
+        let isOdd = odd;
+        let index = index
+      "
+      [ngClass]="isEven ? 'even' : 'odd'">
+      <td>{{ index }}</td>
+      <td>{{ isEven ? 'Even' : 'Odd' }}</td>
+      <td>{{ room.roomNumber }}</td>
+      <td>{{ room.type }}</td>
+      <td>{{ room.price }}</td>
+      <td>{{ room.amenities }}</td>
+      <td>{{ room.checkIn }}</td>
+      <td>{{ room.checkOut }}</td>
+    </tr>
+  </table>
 </div>
 
 <button (click)="toggle()">Toggle</button>

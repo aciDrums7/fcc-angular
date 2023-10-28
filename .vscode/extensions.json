@@ -19,6 +19,7 @@
     "jeff-hykin.better-dockerfile-syntax",
     "johnpapa.angular2",
     "john-crowson.angular-file-changer",
-    "yatki.vscode-surround"
+    "yatki.vscode-surround",
+    "cyrilletuzi.angular-schematics"
   ]
 }
