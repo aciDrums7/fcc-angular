@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+    app:
+        image: mcr.microsoft.com/devcontainers/typescript-node:1-18-bullseye
+        container_name: fcc-angular
+        command: "tail -f /dev/null"
+        volumes:
+            - .:/usr/src/app
+            - node_modules:/usr/src/app/node_modules
+        ports:
+            - 4200:4200
+
+volumes:
+    node_modules:
