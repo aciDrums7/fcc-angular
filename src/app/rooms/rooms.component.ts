@@ -1,22 +1,22 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-   selector: 'fcc-rooms',
-   templateUrl: './rooms.component.html',
-   styleUrls: ['./rooms.component.scss'],
+  selector: 'app-rooms',
+  templateUrl: './rooms.component.html',
+  styleUrls: ['./rooms.component.scss'],
 })
 export class RoomsComponent implements OnInit {
-   hotelName: string = 'Hilton Hotel'
+  hotelName = 'Hilton Hotel';
 
-   numberOfRooms: number = 7
+  numberOfRooms = 7;
 
-   areRoomsHidden: boolean = false
+  areRoomsHidden = false;
 
-   constructor() {}
+  constructor() {}
 
-   ngOnInit(): void {}
+  ngOnInit(): void {}
 
-   toggle() {
-      this.areRoomsHidden = !this.areRoomsHidden
-   }
+  toggle() {
+    this.areRoomsHidden = !this.areRoomsHidden;
+  }
 }

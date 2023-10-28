@@ -1,42 +1,42 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/typescript-node
 {
-	"name": "fcc-angular",
-    "dockerComposeFile": ["../docker-compose.yml"],
-    "service": "app",
-    "workspaceFolder": "/usr/src/app",
-    "shutdownAction": "stopCompose",
-    "postCreateCommand": {
-        "git:safe-directory": "git config --global --add safe.directory /usr/src/app",
-        "git:user.name": "git config --global user.name aciDrums7",
-        "git:user.email": "git config --global user.email edoardo.carradori.96@gmail.com"
-    },
-    "customizations": {
-        "vscode": {
-            "extensions": [
-				"angular.ng-template",
-				"aaron-bond.better-comments",
-				"alefragnani.bookmarks",
-				"ms-vscode-remote.remote-containers",
-				"johnpapa.vscode-peacock",
-				"enkia.tokyo-night",
-				"kevinghadyani.vscode-colormate",
-				"mikestead.dotenv",
-				"dbaeumer.vscode-eslint",
-				"eamodio.gitlens",
-				"yzhang.markdown-all-in-one",
-				"pkief.material-icon-theme",
-				"esbenp.prettier-vscode",
-				"tabnine.tabnine-vscode",
-				"redhat.vscode-yaml",
-				"jeff-hykin.better-dockerfile-syntax",
-				"johnpapa.Angular2",
-				"john-crowson.angular-file-changer",
-				"yatki.vscode-surround"
-			]
-        }
-    },
-	"features": {
-		"ghcr.io/devcontainers-contrib/features/angular-cli:2": {}
-	}
+  "name": "fcc-angular",
+  "dockerComposeFile": ["../docker-compose.yml"],
+  "service": "app",
+  "workspaceFolder": "/usr/src/app",
+  "shutdownAction": "stopCompose",
+  "postCreateCommand": {
+    "git:safe-directory": "git config --global --add safe.directory /usr/src/app",
+    "git:user.name": "git config --global user.name aciDrums7",
+    "git:user.email": "git config --global user.email edoardo.carradori.96@gmail.com"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "angular.ng-template",
+        "aaron-bond.better-comments",
+        "alefragnani.bookmarks",
+        "ms-vscode-remote.remote-containers",
+        "johnpapa.vscode-peacock",
+        "enkia.tokyo-night",
+        "kevinghadyani.vscode-colormate",
+        "mikestead.dotenv",
+        "dbaeumer.vscode-eslint",
+        "eamodio.gitlens",
+        "yzhang.markdown-all-in-one",
+        "pkief.material-icon-theme",
+        "esbenp.prettier-vscode",
+        "tabnine.tabnine-vscode",
+        "redhat.vscode-yaml",
+        "jeff-hykin.better-dockerfile-syntax",
+        "johnpapa.Angular2",
+        "john-crowson.angular-file-changer",
+        "yatki.vscode-surround"
+      ]
+    }
+  },
+  "features": {
+    "ghcr.io/devcontainers-contrib/features/angular-cli:2": {}
+  }
 }
