@@ -14,6 +14,7 @@
     "customizations": {
         "vscode": {
             "extensions": [
+                "angular.ng-template",
                 "aaron-bond.better-comments",
                 "alefragnani.bookmarks",
                 "ms-vscode-remote.remote-containers",

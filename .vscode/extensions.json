@@ -1,0 +1,21 @@
+{
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=827846
+  "recommendations": [
+    "angular.ng-template",
+    "aaron-bond.better-comments",
+    "alefragnani.bookmarks",
+    "ms-vscode-remote.remote-containers",
+    "johnpapa.vscode-peacock",
+    "enkia.tokyo-night",
+    "kevinghadyani.vscode-colormate",
+    "mikestead.dotenv",
+    "dbaeumer.vscode-eslint",
+    "eamodio.gitlens",
+    "yzhang.markdown-all-in-one",
+    "pkief.material-icon-theme",
+    "esbenp.prettier-vscode",
+    "tabnine.tabnine-vscode",
+    "redhat.vscode-yaml",
+    "jeff-hykin.better-dockerfile-syntax"
+  ]
+}
