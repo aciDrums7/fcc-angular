@@ -9,6 +9,7 @@ services:
       - node_modules:/usr/src/app/node_modules
     ports:
       - 4200:4200
+    user: root
 
 volumes:
   node_modules:
