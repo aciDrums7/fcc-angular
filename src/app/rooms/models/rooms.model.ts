@@ -12,5 +12,5 @@ export interface Room {
   photos: string[];
   isAvailable: boolean;
   checkIn: Date;
-  checkOut?: Date;
+  checkOut?: Date | null;
 }
