@@ -1,0 +1,35 @@
+<table class="table">
+  <tr>
+    <th scope="col">Index</th>
+    <th scope="col">Even/Odd</th>
+    <th scope="col">Room Number</th>
+    <th scope="col">Room Type</th>
+    <th scope="col">Room Price</th>
+    <th scope="col">Room Amenities</th>
+    <th scope="col">Check In</th>
+    <th scope="col">Check Out</th>
+    <th scope="col">Select Room</th>
+  </tr>
+  <!-- ? Don't use slice pipe for large datasets -->
+  <!-- ? (In that case, rely on server side pagination/filtering) -->
+  <tr
+    *ngFor="
+      let room of this.roomsList | slice: 0 : 5;
+      let isEven = even;
+      let isOdd = odd;
+      let index = index
+    "
+    [ngClass]="isEven ? 'even' : 'odd'">
+    <th scope="row">{{ index }}</th>
+    <td>{{ isEven ? 'Even' : 'Odd' }}</td>
+    <td>{{ room.roomNumber }}</td>
+    <td>{{ room.type }}</td>
+    <td>{{ room.price | currency: 'EUR' }}</td>
+    <td>{{ room.amenities | titlecase }}</td>
+    <td>{{ room.checkIn | date: 'dd MMM yyyy' }}</td>
+    <td>{{ room.checkOut | date: 'dd MMM yyyy' }}</td>
+    <td>
+      <button class="btn btn-primary" (click)="selectRoom(room)">Select</button>
+    </td>
+  </tr>
+</table>
