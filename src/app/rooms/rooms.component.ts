@@ -23,6 +23,8 @@ export class RoomsComponent implements OnInit {
 
   selectedRoom!: Room;
 
+  title = 'Rooms List';
+
   ngOnInit(): void {
     this.roomsList = [
       {
@@ -123,10 +125,32 @@ export class RoomsComponent implements OnInit {
 
   toggle() {
     this.isRoomCountShown = !this.isRoomCountShown;
+    this.title = 'WROOMS!!!';
   }
 
   selectRoom(room: Room) {
     console.log(room);
     this.selectedRoom = room;
+  }
+
+  addRoom() {
+    const room: Room = {
+      type: 'Standard Room',
+      roomNumber: 235,
+      amenities: 'Donec posuere metus vitae ipsum. Aliquam non mauris.',
+      price: 9152.0,
+      isAvailable: true,
+      photos: [
+        'https://si.edu/praesent.xml?eget=a&elit=ipsum&sodales=integer&scelerisque=a&mauris=nibh&sit=in&amet=quis&eros=justo&suspendisse=maecenas&accumsan=rhoncus&tortor=aliquam&quis=lacus&turpis=morbi&sed=quis&ante=tortor&vivamus=id&tortor=nulla&duis=ultrices&mattis=aliquet&egestas=maecenas&metus=leo&aenean=odio&fermentum=condimentum&donec=id&ut=luctus&mauris=nec&eget=molestie&massa=sed&tempor=justo&convallis=pellentesque&nulla=viverra&neque=pede&libero=ac&convallis=diam&eget=cras&eleifend=pellentesque&luctus=volutpat&ultricies=dui&eu=maecenas&nibh=tristique&quisque=est&id=et&justo=tempus&sit=semper&amet=est&sapien=quam&dignissim=pharetra&vestibulum=magna&vestibulum=ac&ante=consequat&ipsum=metus&primis=sapien&in=ut&faucibus=nunc&orci=vestibulum&luctus=ante&et=ipsum&ultrices=primis&posuere=in&cubilia=faucibus&curae=orci&nulla=luctus&dapibus=et&dolor=ultrices&vel=posuere&est=cubilia&donec=curae&odio=mauris&justo=viverra&sollicitudin=diam&ut=vitae&suscipit=quam&a=suspendisse&feugiat=potenti&et=nullam&eros=porttitor&vestibulum=lacus&ac=at&est=turpis&lacinia=donec&nisi=posuere&venenatis=metus&tristique=vitae&fusce=ipsum&congue=aliquam&diam=non&id=mauris',
+      ],
+      checkIn: new Date('11/26/2023'),
+      checkOut: new Date('12/7/2023'),
+    };
+    //? Why this? for the change detection, IMMUTABILITY is a key concept!
+    //3 To let the change detection in the rooms-list.component detect a change here
+    //4 modifying the already existent roomsList array doesn't work, we need to create
+    //5 and return a new one
+    // this.roomsList.push(room);
+    this.roomsList = [...this.roomsList, room];
   }
 }

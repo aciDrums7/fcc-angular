@@ -1,3 +1,4 @@
+<h2>{{ title }}</h2>
 <table class="table">
   <tr>
     <th scope="col">Index</th>
@@ -14,7 +15,7 @@
   <!-- ? (In that case, rely on server side pagination/filtering) -->
   <tr
     *ngFor="
-      let room of this.roomsList | slice: 0 : 5;
+      let room of this.roomsList | slice: 0 : 21;
       let isEven = even;
       let isOdd = odd;
       let index = index
