@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, DoCheck, OnInit } from '@angular/core';
 import { Hotel, Room } from './models/rooms.model';
 
 @Component({
@@ -6,7 +6,7 @@ import { Hotel, Room } from './models/rooms.model';
   templateUrl: './rooms.component.html',
   styleUrls: ['./rooms.component.scss'],
 })
-export class RoomsComponent implements OnInit {
+export class RoomsComponent implements OnInit, DoCheck {
   hotelName = 'Hilton Hotel';
 
   numberOfRooms = 7;
@@ -121,6 +121,12 @@ export class RoomsComponent implements OnInit {
         checkIn: new Date('11/11/2023'),
       },
     ];
+  }
+
+  //? Called any time there's a change detected!
+  //! VERY COSTLY! RARELY USED, AVOID IT
+  ngDoCheck(): void {
+    console.log('ngDoCheck called!');
   }
 
   toggle() {
