@@ -1,4 +1,13 @@
-import { Component, DoCheck, OnInit } from '@angular/core';
+/* eslint-disable @angular-eslint/no-empty-lifecycle-method */
+import {
+  AfterViewChecked,
+  AfterViewInit,
+  Component,
+  DoCheck,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
+import { HeaderComponent } from '../header/header.component';
 import { Hotel, Room } from './models/rooms.model';
 
 @Component({
@@ -6,7 +15,9 @@ import { Hotel, Room } from './models/rooms.model';
   templateUrl: './rooms.component.html',
   styleUrls: ['./rooms.component.scss'],
 })
-export class RoomsComponent implements OnInit, DoCheck {
+export class RoomsComponent
+  implements OnInit, DoCheck, AfterViewInit, AfterViewChecked
+{
   hotelName = 'Hilton Hotel';
 
   numberOfRooms = 7;
@@ -25,7 +36,15 @@ export class RoomsComponent implements OnInit, DoCheck {
 
   title = 'Rooms List';
 
+  //? Way to instance an headerComponent, like an object
+  //4 static: true -> safe to be used inside the OnInit of its parent
+  //! if the viewChild component has async code, then static MUST BE FALSE, ELSE THROWS ERROR!
+  @ViewChild(HeaderComponent /* { static: true } */)
+  headerComponent!: HeaderComponent;
+
   ngOnInit(): void {
+    console.log(`ngOnInit headerComponent:`);
+    console.log(this.headerComponent);
     this.roomsList = [
       {
         type: 'Standard Room',
@@ -126,7 +145,22 @@ export class RoomsComponent implements OnInit, DoCheck {
   //? Called any time there's a change detected!
   //! VERY COSTLY! RARELY USED, AVOID IT
   ngDoCheck(): void {
-    console.log('ngDoCheck called!');
+    // console.log('ngDoCheck called!');
+  }
+
+  ngAfterViewInit(): void {
+    // this.headerComponent.title = 'Rooms View';
+    // console.log(`ngAfterViewInit headerComponent:`);
+    // console.log(this.headerComponent);
+  }
+
+  //? When calling this hook, Angular has already completed one change detection cycle
+  //! this will throw Error: NG0100, totally fine in dev because
+  //4 in dev mode, change detection runs 2 cycles each time!!!
+  ngAfterViewChecked(): void {
+    this.headerComponent.title = 'Rooms View';
+    console.log(`ngAfterViewChecked headerComponent:`);
+    console.log(this.headerComponent);
   }
 
   toggle() {
