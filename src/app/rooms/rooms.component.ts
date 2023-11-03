@@ -5,10 +5,13 @@ import {
   Component,
   DoCheck,
   OnInit,
+  QueryList,
   ViewChild,
+  ViewChildren,
 } from '@angular/core';
 import { HeaderComponent } from '../header/header.component';
 import { Hotel, Room } from './models/rooms.model';
+import { ThisReceiver } from '@angular/compiler';
 
 @Component({
   selector: 'app-rooms',
@@ -37,13 +40,16 @@ export class RoomsComponent
   title = 'Rooms List';
 
   //? Way to instance an headerComponent, like an object
-  //4 static: true -> safe to be used inside the OnInit of its parent
+  //4 static: true -> safe to be used inside the OnInit of its parent (it will not be undefined)
   //! if the viewChild component has async code, then static MUST BE FALSE, ELSE THROWS ERROR!
   @ViewChild(HeaderComponent /* { static: true } */)
   headerComponent!: HeaderComponent;
 
+  @ViewChildren(HeaderComponent)
+  headerComponentsList!: QueryList<HeaderComponent>;
+
   ngOnInit(): void {
-    console.log(`ngOnInit headerComponent:`);
+    console.log(`rooms.component::ngOnInit::headerComponent`);
     console.log(this.headerComponent);
     this.roomsList = [
       {
@@ -150,8 +156,11 @@ export class RoomsComponent
 
   ngAfterViewInit(): void {
     // this.headerComponent.title = 'Rooms View';
-    // console.log(`ngAfterViewInit headerComponent:`);
+    // console.log(`rooms.component::ngAfterViewInit::headerComponent:`);
     // console.log(this.headerComponent);
+    this.headerComponentsList.last.title = 'Last Title';
+    console.log(`rooms.component::ngAfterViewInit::headerComponentsList:`);
+    console.log(this.headerComponentsList);
   }
 
   //? When calling this hook, Angular has already completed one change detection cycle
@@ -159,7 +168,7 @@ export class RoomsComponent
   //4 in dev mode, change detection runs 2 cycles each time!!!
   ngAfterViewChecked(): void {
     this.headerComponent.title = 'Rooms View';
-    console.log(`ngAfterViewChecked headerComponent:`);
+    console.log(`rooms.component::ngAfterViewChecked::headerComponent:`);
     console.log(this.headerComponent);
   }
 
@@ -169,6 +178,7 @@ export class RoomsComponent
   }
 
   selectRoom(room: Room) {
+    console.log('rooms.component::selectRoom::room');
     console.log(room);
     this.selectedRoom = room;
   }
